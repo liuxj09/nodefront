@@ -1,0 +1,15 @@
+{% extends '_layouts/1.x/normal.html' %}
+
+{% block beforeHeadEnd %}
+{{ super() }}
+{{ importCSS('/static/css/home.css') | safe }}
+{{ jcsCSS('/res1.5/css/common/common.css') | safe }}
+{% endblock %}
+
+{% set pageTitle = '无请求页' %}
+
+{% block main %}
+	<h1 class="hello">
+		hello, world
+	</h1>
+{% endblock %}

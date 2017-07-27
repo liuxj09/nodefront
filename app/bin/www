@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+const path = require('path')
+
+var config = require('../config.json')
+config.liveloadPath = path.resolve(__dirname, '../../')
+config.staticPath = path.join(__dirname, '../../static')
+config.routePath = path.join(__dirname, '../routes/views')
+config.viewPath = path.join(__dirname, '../views')
+config.staticPathDev = path.join(__dirname, config.jcsPath.commonres)
+
+var my = require('nodemy')
+
+my(config)

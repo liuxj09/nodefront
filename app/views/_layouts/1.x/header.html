@@ -1,0 +1,198 @@
+
+<div class="topbar">
+    <div class="wrap clear">
+        <div class="login-bar">
+            <div class="site-mobile">
+                <a href="https://m.mycaigou.com/"><i class="icon icon-phone"></i>手机版</a>
+                <div class="mobile-qrcode">
+                    <div class="items">
+                    <img src="https://jcs.{{domain}}/res1.5/img/common/code_150x150.jpg" alt="微信扫一扫">
+                    <p class="txt">加微信公众号<br/>掌握海量商机</p>
+                    </div>
+                    <div class="items">
+                    <img src="https://jcs.{{domain}}/res1.5/img/common/code_lingl_150x150.jpg" alt="微信扫一扫">
+                    <p class="txt">加美女运营顾问<br/>专享一对一指导</p>
+                    </div>
+                </div>
+            </div>
+            <p class="line_split">|</p>
+            <p class="login_info" id="show_login_user">
+                <a class="login_name" href="" id="showTopCompanyName">用户名</a>
+                <a class="link_account" id="showTopCompanyUrl" href="#" rel="nofollow">我的桌面</a>
+                <a class="btn_logout" id="btn_logout" rel="nofollow" href="https://login.{{domain}}/view/logout.do">退出</a>
+            </p>
+            <p class="login_info" id="show_login_info">
+                <span class="welcome">欢迎来到云采购</span>
+                <a class="link_sigin" href="https://login.{{domain}}/" rel="nofollow">请登录</a>
+                <a class="link_reg" href="https://register.{{domain}}/" rel="nofollow">免费注册</a>
+            </p>
+        </div>
+        <div class="nav-link">
+            <div class="link" id="topbarMenu">
+            </div>
+            <div class="link">
+                <a href="#">产品服务</a>
+                <ul>
+                    <li><a href="https://www.{{domain}}/topic/recruit150601/index.html" target='_blank'>供应商招募</a></li>
+                    <li><a href="https://www.{{domain}}/topic/equities20150831/index.html" target='_blank'>供应商服务</a></li>
+                    <li><a href="https://www.{{domain}}/topic/developer20150902/index.html" target='_blank'>开发商服务</a></li>
+                    <li><a href="https://my1.{{domain}}/medal/intro" target='_blank'>荣誉勋章服务</a></li>
+                    <li><a href="https://www.{{domain}}/topic/value150602/index.html" target='_blank'>企业show</a></li>
+                    <li><a href="https://www.{{domain}}/topic/crunchie20150826/index.html" target='_blank'>采招公众号</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <a href="#">客服中心</a>
+                <ul>
+                    <li><a href="https://help.{{domain}}/supplier/index.html" target='_blank'>供应商帮助</a></li>
+                    <li><a href="https://help.{{domain}}/developer/index.html" target='_blank'>开发商帮助</a></li>
+                    <li><a href="https://help.{{domain}}/service.html" target='_blank'>在线客服</a></li>
+                    <li><a href="https://help.{{domain}}/service.html" target='_blank'>400电话</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function ($) {
+            function getCookieInfo(name) {
+                var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+                if (arr = top.document.cookie.match(reg)) {
+                    return unescape(arr[2]);
+                } else {
+                    return "";
+                }
+            };
+
+            var type = getCookieInfo("companyType") + "";
+            if (type == "1" || type == "2") {
+                $("#show_login_info").hide();
+            } else {
+                var companyName =getCookieInfo('showTopCompanyName') + "",
+                    id = getCookieInfo('companyId') + "",
+                    ctype = /^K/.test(id),
+                    url = ctype ? 'kfs.{{ domain }}' : 'gys.{{ domain }}';
+                $('#showTopCompanyName').text(companyName).attr('href', url);
+                $("#show_login_user").hide();
+            }
+
+            getTopbarMenu();
+            function getTopbarMenu(){
+                $.ajax(
+                    {
+                        type:'post',
+                        url:'//portal2.{{domain}}/home/get-top-bar-menu',
+                        dataType: 'jsonp',
+                        success: function(response)
+                        {
+                            $("#topbarMenu").html(response.data);
+                        }
+                    }
+                );
+            }
+        })($);
+    </script>
+</div>
+<!-- head -->
+<div class="header">
+    <div class="wrap clear">
+        <h3 class="logo"><a href="https://www.{{domain}}/" title="明源地产采购"><img src="https://jcs.{{domain}}/res1.5/img/common/layout/logo.png" alt="明源地产采购"/> <img src="https://jcs.{{domain}}/res1.5/img/common/layout/logo-desc.png" alt="地产行业最大的 供应商招募平台"></a></h3>
+        <div class="search_tabbar">
+            <div class="s_tab">
+                <ul class="items">
+                    <li class="active" data-module="recruit" data-url="zm" data-placehoder="请输入招募信息或开发商"><a href="#">招募</a>
+                    </li>
+                    <li data-module="announcement" data-url="bidding" data-placehoder="请输入招标信息或开发商"><a href="#">招标</a>
+                    </li>
+                    <li data-module="supplier" data-url="supplier" data-placehoder="请输入产品/服务或供应商"><a href="#">供应商</a>
+                    </li>
+                    <li data-module="developer" data-url="developer" data-placehoder="请输入开发商"><a href="#">开发商</a>
+                    </li>
+                </ul>
+            </div>
+            <p class="panel">
+                <input type="text" id="searchTxt" class="txt_common" value="" placeholder="请输入招标信息或开发商" maxlength="50" data-domain="https://search.{{domain}}/" />
+                <input type="button" id="searchBtn" class="btn_common" value="搜索" />
+            </p>
+            <script src='//jcs.{{domain}}/js/search/jquery.ui.custom.min.1.10.3.js'></script>
+            <script src='//jcs.{{domain}}/res1.5/js/common/nav-search.js'></script>
+        </div>
+        <!-- 右侧：二维码 -->
+        <div class="header-qrcode">
+          <p class="qrcode-tit">微信扫一扫d</p>
+          <p class="qrcode-tit-hover">关注云采购公众号<br>地产商机尽在掌握</p>
+          <img src="https://jcs.{{domain}}/res1.5/img/common/code_150x150.jpg" alt="微信扫一扫">
+        </div>
+        <!-- end -->
+    </div>
+</div>
+<script type="text/javascript">
+    function bookmark(url, title) {
+        try {
+            if (window.sidebar) {
+                window.sidebar.addPanel(title, url, "");
+            } else if (document.all || !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv:11/))) {
+                window.external.AddFavorite(url, title);
+            } else {
+                alert('对不起，您的浏览器不支持加入收藏夹功能，您可以尝试通过快捷键ctrl + d加入到收藏夹。');
+            }
+        } catch (e) {
+            alert("对不起，您的浏览器不支持加入收藏夹功能，您可以尝试通过快捷键'ctrl + d'加入到收藏夹。");
+        }
+    };
+    function getTopInfo(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = top.document.cookie.match(reg)) return unescape(arr[2]);
+        else return "";
+    };
+    function showLoginUserInfo(type, name, url) {
+        if (!type || type == "" || (type != 1 && type != 2) || !name || name == "") {
+            return;
+        }
+        $("#show_login_user").show();
+        $("#show_login_info").hide();
+
+        if (type == 1) {
+            $("#showTopCompanyUrl").attr("target", '_blank');
+            $("#showTopCompanyUrl").attr("href", '//gys.{{domain}}/');
+        } else {
+            $("#showTopCompanyUrl").attr("target", '_top');
+            $("#showTopCompanyUrl").attr("href", '//kfs.{{domain}}/');
+        }
+        $("#showTopCompanyName").text(name);
+        $("#showTopCompanyName").attr("title", $("#showTopCompanyName").text());
+        if (url) {
+            $("#showTopCompanyName").attr("href", url);
+        }
+    };
+    (function ($) {
+        //load current user info
+        var id = getTopInfo('companyId') + "",
+            ctype = /^K/.test(id),
+            url = ctype ? 'https://kfs.{{ domain }}' : 'https://gys.{{ domain }}';
+        showLoginUserInfo(getTopInfo("companyType"), getTopInfo("companyName"), url);
+    })($);
+</script><div class="nav">
+    <ul class="wrap clear">
+        <li class="items first_item  choose "><a href="https://www.{{domain}}/">首页</a>
+        </li>
+        <li class="items"><a href="https://www.{{domain}}/zm">最新招募</a>
+        </li>
+        <li class="items"><a href="https://www.{{domain}}/bidding">紧急招标</a>
+        </li>
+        <li class="items"><a href="https://www.{{domain}}/supplier">找供应商</a>
+        </li>
+        <li class="items"><a href="https://www.{{domain}}/developer.html">找开发商</a></li>
+        <li class="items"><a href="https://news.{{domain}}/zh.html">展会</a></li>
+        <li class="items"><a href="https://news.{{domain}}/">采购资讯</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    function initSiteNav() {
+        $(".site_home").show();
+    }
+    (function ($) {
+        initSiteNav();
+    })($);
+</script>
+<style>.header {background-color: #f8f8f8;}.nav {background-color: #ff9200;}</style>

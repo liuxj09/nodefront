@@ -1,0 +1,24 @@
+{
+	"port": 7930,
+	"staticExpires": 1414,
+	"proxy": {
+		"production": "https://www.mycaigou.com",
+		"mirror": "https://www.b2bmir.com",
+		"test": "https://www.b2btst5.win",
+		"default": "https://www.b2btst.com"
+	},
+	"host": {
+		"production": "mycaigou.com",
+		"mirror": "b2bmir.com",
+		"test": "b2btst5.win",
+		"development": "b2btst5.win",
+		"liuxj":"dd"
+	},
+	"jcsPath": {
+		"jcsMark": "/_self_jcs_mark",
+		"commonres": "../../../commonres",
+		"production": "https://jcs.mycaigou.com",
+		"mirror": "https://jcs.b2bmir.com",
+		"test": "https://jcs.b2btst5.win"
+	}
+}

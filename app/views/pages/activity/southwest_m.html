@@ -1,0 +1,202 @@
+{% extends '_layouts/2.x/basic.html' %}
+
+{% block TDK %}
+<title>{% if userType==='kfs' %}西南大区联合行动：强强联手打造西南新时代！{% else %}西南大区联合采购，百家房企邀您共创西南新时代！{% endif %}</title>
+<meta name="description" content="{% if userType==='kfs' %}西南大区联合行动：强强联手打造西南新时代西南大区年中大事件！百家房企联合采购，共同翻开西南大区采购新篇章！{% else %}西南大区年中巨献！百家房企邀您一起见证西南大区新时代的崛起！共同创建西南大区美好未来！{% endif %}">
+{% endblock %}
+{% block beforeHeadEnd %}
+<meta name="flexible" content="initial-dpr=2" />
+{{ jcsJS('/activity/assets-js/flexible_css.js') | safe }}
+{{ jcsJS('/activity/assets-js/flexible.js') | safe }}
+{{ jcsCSS('/activity/assets-css/swiper.min.css') | safe }}
+{{ jcsCSS('/activity/southwest/mobile/southwest_m.css') | safe }}
+{{ super() }}
+{% endblock %}
+
+{% block body %}
+    <div class="title_head"></div>
+    <ul class="area">
+        <li class="all_area active">
+            <p>全部</p>
+            <p>地区</p>
+        </li>
+        <li class="sc_area" area-id="279">
+            <p>四川</p>
+            <p>地区</p>
+        </li>
+        <li class="gz_area" area-id="301">
+            <p>贵州</p>
+            <p>地区</p>
+        </li>
+        <li class="yn_area" area-id="311">
+            <p>云南</p>
+            <p>地区</p>
+        </li>
+        <li class="cq_area" area-id="7">
+            <p>重庆</p>
+            <p>地区</p>
+        </li>
+    </ul>
+    <div class="content_box">
+        <div class="developers">
+            <div class="title">
+                <i></i>
+                <span>正在寻找合作伙伴的开发商</span>
+            </div>
+            <div class="page swiper-pagination">
+                <span class="now_page">1</span>
+                <span>/</span>
+                <span class="all_page">20</span>
+            </div>
+            <div class="developers_img swiper-container">
+                <div class="swiper-wrapper">
+                    {% for items in data %}
+                    <ul class="swiper-slide">
+                        {% for item in items %}
+                        <li>
+                            <a href="{{item.developer_domain}}" class="item">
+                                <img src="https://img.fdczbstatic.com/company/{{item.developer_id}}.150x75.jpg" alt="">
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="title">
+                <i></i>
+                <span>招募/招标中的项目</span>
+            </div>
+            <div class="project_box">
+                <div class="engineering">
+                    <div class="btn engineering_btn"><a href="javascript:;"></a></div>
+                </div>
+                 <div class="material">
+                    <div class="btn material_btn"><a href="javascript:;"></a></div>
+                </div> 
+            </div>
+        </div>
+        <div class="draw">
+            <div class="title">
+                <i></i>
+                <span>活动抽奖</span>
+            </div>
+            <div class="draw_box">
+                <p class="draw_explain">活动期间以下任务每完成一个，可获得一次抽奖机会，不可重复获得</p>
+                <div class="tip">
+                    <p>
+                        <i></i>
+                        <span class="draw_tip">抽奖时间：每10天抽一次奖，总共分3次抽；</span>
+                    </p>
+                    <p>
+                        <i></i>
+                        <span class="draw_tip">抽奖通知会通过云采购公众号推送，敬请关注！</span>
+                    </p>
+                    <p>
+                        <i></i>
+                        <span class="draw_tip">导入有效供应商50家以上（从未入驻云采购）额外获得1次。</span>
+                    </p>
+                </div>
+                <ul>
+                    <li>
+                        <i class="sign_1"></i>
+                        <p class="_common">在平台发布5条以上招募</p>
+                    </li>
+                    <li>
+                        <i class="sign_2"></i>
+                        <p class="_common">在平台发布3条以上招标</p>
+                    </li>
+                    <li>
+                        <i class="sign_3"></i>
+                        <p class="_second">入库（暂不需要不算）</p>
+                        <p>10家供应商</p>
+                    </li>
+                    <li>
+                        <i class="sign_4"></i>
+                        <p class="_alone">入围5家供应商</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="welfare">
+            <div class="title">
+                <i></i>
+                <span>活动福利</span>
+            </div>
+            <div class="welfare_box">
+                <p>
+                    <i></i>
+                    <span class="_white">活动期间在平台发布招募招标的会员，可获得2016-2017年度供应商行业竞争力报告一份，每个会员上限1次；</span>
+                </p>
+                <p>
+                    <i></i>
+                    <span class="_white">专人推广，将需求推送给符合要求的供应商，扩大开发商品牌知名度，吸引优质供应商；</span>
+                </p>
+                <p>
+                    <i></i>
+                    <span class="_white">后台匹配，将符合条件的供应商名录发送给开发商企业，帮助企业搭建强大的供应商资源池。</span>
+                </p>
+            </div>
+        </div>
+        <div class="condition">
+            <div class="title">
+                <i></i>
+                <span>参加条件</span>
+            </div>
+            <div class="condition_box">
+                <p>
+                    <i></i>
+                    <span class="_white">招募招标需求项目地为-公司所在地为：</span><span class="_hight">重庆、 四川、贵州、云南的；</span>
+                </p>
+                <p>
+                    <i></i>
+                    <span class="_white">招活动期间</span><span class="_hight">在云采购平台发布过招募/招标；</span>
+                </p>
+            </div>
+        </div>
+        <div class="sponsor" style="display:none;">
+            <div class="title">
+                <i></i>
+                <span>赞助商</span>
+            </div>
+            <div class="sponsor_box">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer_tip">
+        本次活动最终解释权归明源云采购所有
+    </div>
+    <script>
+	    window.myDomain = '{{ domain | safe }}';
+        window.cacheObj = {
+            all: {{ jsonEncode(data) | safe }}
+        }
+        // 微信分享
+        var mysite = location.href;
+        var T;
+        var D;
+        {% if userType == 'kfs' %}
+            T = '西南大区联合行动：强强联手打造西南新时代！';
+            D = '西南大区年中大事件！百家房企联合采购，共同翻开西南大区采购新篇章！';
+        {% else %}
+            T = '西南大区联合采购，百家房企邀您共创西南新时代！';
+            D = '西南大区年中巨献！百家房企邀您一起见证西南大区新时代的崛起！共同创建西南大区美好未来！';
+        {% endif %}
+        mysite = mysite.substr(0, mysite.lastIndexOf('/'));
+        window.initShare && window.initShare("{{jcs('/activity/southwest/mobile/img/title_bg.jpg')}}"
+            , location.href
+            , D
+            , T);
+    </script>
+    {{ jcsJS('/res2.0/js/common/md5.js') | safe }}
+    {{ jcsJS('/activity/assets-js/swiper.jquery.min.js') | safe }}
+    {{ jcsJS('/activity/assets-js/modals.js') | safe }}
+    {{ jcsJS('/activity/southwest/mobile/southwest_m.js') | safe }}
+{% endblock %}

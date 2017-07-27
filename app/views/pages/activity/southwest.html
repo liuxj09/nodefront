@@ -1,0 +1,119 @@
+{% extends '_layouts/1.x/normal.html' %}
+
+{% block beforeHeadEnd %}
+<title>{% if userType==='kfs' %}西南大区联合行动：强强联手打造西南新时代！{% else %}西南大区联合采购，百家房企邀您共创西南新时代！{% endif %}</title>
+<meta name="description" content="{% if userType==='kfs' %}西南大区联合行动：强强联手打造西南新时代西南大区年中大事件！百家房企联合采购，共同翻开西南大区采购新篇章！{% else %}西南大区年中巨献！百家房企邀您一起见证西南大区新时代的崛起！共同创建西南大区美好未来！{% endif %}">
+{{ super() }}
+{{ jcsCSS('/activity/southwest/pc/southwest.css') | safe }}
+{% endblock %}
+{% block main %}
+<div class="content">
+	<div class="banner"></div>
+	<div class="dev">
+		<div class="wrap">
+			<ul class="subnav">
+				<li class="active"><a href="javascript:;" area-id="">全部地区</a></li>
+				<li><a href="javascript:;" area-id="279">四川地区</a></li>
+				<li><a href="javascript:;" area-id="301">贵州地区</a></li>
+				<li><a href="javascript:;" area-id="311">云南地区</a></li>
+				<li><a href="javascript:;" area-id="7">重庆地区</a></li>
+			</ul>
+			<img src="{{jcs('/activity/southwest/pc/img/dev-title.png')}}" alt="" class="block-title">
+			<div class="exhibition-box">
+				<div class="swiper-container">
+					<div class="wrap swiper-wrapper">
+						{% for items in data %}
+							<div class="swiper-slide">
+								{% for item in items %}
+									<a href="{{item.developer_domain}}" class="item">
+										<img src="https://img.fdczbstatic.com/company/{{item.developer_id}}.150x75.jpg" alt="">
+									</a>
+								{% endfor %}
+							</div>
+						{% endfor %}
+					</div>
+					<div class="swiper-pagination"></div>
+					<!-- Add Arrows -->
+					<div class="swiper-next swiper-btn"><span class="icon icon-next"></span></div>
+					<div class="swiper-prev swiper-btn"><span class="icon icon-prev"></span></div>
+					<div class="swiper-pagination swiper-pagination-fraction">
+						<span class="swiper-pagination-current">1</span> / <span class="swiper-pagination-total">2</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="project">
+		<div class="wrap">
+			<img src="{{jcs('/activity/southwest/pc/img/recruit-title.png')}}" alt="" class="block-title">
+			{% if userType==='kfs' %}<a href="https://kfs.{{domain}}/" class="recruit-btn"></a>{% endif %}
+			<div class="content-info clear">
+				<a href="javascript:;" class="content-btn content-btn1"></a>
+				<a href="javascript:;" class="content-btn content-btn2"></a>
+			</div>
+		</div>
+	</div>
+	<div class="draw">
+		<div class="wrap">
+			<img src="{{jcs('/activity/southwest/pc/img/draw-title.png')}}" alt="" class="block-title">
+			<div class="draw-wrap">
+				<div class="item">
+					<span class="icon icon-flag"></span>
+					<p class="desc">在平台发布<br />5条以上招募</p>
+				</div>
+				<div class="item">
+					<span class="icon icon-download"></span>
+					<p class="desc">入库 ( 暂不需要<br />不算 ) 10家供应商</p>
+				</div>
+				<div class="item">
+					<span class="icon icon-aim"></span>
+					<p class="desc">在平台发布<br />3条以上招标</p>
+				</div>
+				<div class="item mr0">
+					<span class="icon icon-badge"></span>
+					<p class="desc">入围五家供应商</p>
+				</div>
+			</div>
+			<div class="draw-desc">
+				<p class="draw-desc__title">活动期间以上任务每完成一个，可获得一次抽奖机会，不可重复获得</p>
+				<p class="draw-desc__content">抽奖时间：每10天抽一次奖，总共分3次抽;<br />抽奖通知会通过云采购公众号推送，敬请关注<br />导入有效供应商50家以上（从未入驻云采购）额外获得1次。</p>
+			</div>
+		</div>
+	</div>
+	{#
+	<div class="sponsor">
+		<div class="wrap">
+			<img src="{{jcs('/activity/southwest/pc/img/sponsor-title.png')}}" alt="" class="block-title">
+			<div class="sponsor-list">
+				<div class="item">
+					<a href="">
+						<img src="{{jcs('/activity/southwest/pc/img/logoexam.png')}}" alt="">
+					</a>
+				</div>
+				<div class="item">
+					<a href="">
+						<img src="{{jcs('/activity/southwest/pc/img/logoexam.png')}}" alt="">
+					</a>
+				</div>
+				<div class="item mr0">
+					<a href="">
+						<img src="{{jcs('/activity/southwest/pc/img/logoexam.png')}}" alt="">
+					</a>
+				</div>
+			</div>
+			<p class="tips">本次活动最终解释权归明源云采购所有</p>
+		</div>
+	</div>
+	#}
+</div>
+{{ super() }}
+<script>
+	window.myDomain = '{{ domain | safe }}';
+	window.cacheObj = {
+		all: {{ jsonEncode(data) | safe }}
+	}
+</script>
+{{ jcsJS('/res2.0/js/common/md5.js') | safe }}
+{{ jcsJS('/activity/assets-js/dialog.js') | safe }}
+{{ jcsJS('/activity/southwest/pc/southwest.js') | safe }}
+{% endblock %}

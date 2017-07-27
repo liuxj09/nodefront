@@ -1,0 +1,23 @@
+{
+  "name": "nodefrontend",
+  "version": "1.0.0",
+  "description": "目录结构实例： > Back2front > ### app > - lib > > 存放koa中间层 > - > nunjucks 模版引擎 > - > request 后端请求 > - > static 静态文件路由 > > - > interface 接口请求处理 >  > 按模块切分 > > - routes 路由/control层，负责地址与页面之间的映射 > - > views 页面路由设置 > - > init 路由初始化 > - > page-type 页面渲染前处理函数 > > - views 静态模版存放位置 > - > _layouts 布局相关文件，例如header.html、foot.html > - > _widget 小部件，例如一些侧栏、弹窗 > - > pages 业务页面模版 > > ### static 静态文件",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.mysoft.com.cn:ycg/nodefrontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.6.0",
+    "gulp-debug": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}

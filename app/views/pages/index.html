@@ -1,0 +1,13 @@
+{% extends '_layouts/1.x/normal.html' %}
+
+{% block beforeHeadEnd %}
+{{ super() }}
+{% endblock %}
+
+{% block main %}
+	{% include "../_layouts/1.x/header.html" %}
+	<h1 class="hello">
+		header
+	</h1>
+	{% include "../_layouts/1.x/footer.html" %}
+{% endblock %}

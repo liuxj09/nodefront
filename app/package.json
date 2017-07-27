@@ -1,0 +1,29 @@
+{
+  "name": "back2front",
+  "version": "1.0.0",
+  "description": "a back to front node middleware",
+  "main": "index.js",
+  "scripts": {
+    "start": "set NODE_ENV=development&& set DEBUG='routesRegister,app'&& node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liary/back2front.git"
+  },
+  "keywords": [
+    "node",
+    "nunjucks",
+    "back2front",
+    "koa"
+  ],
+  "author": "liary",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liary/back2front/issues"
+  },
+  "homepage": "https://github.com/liary/back2front#readme",
+  "dependencies": {
+    "nodemy": "^1.0.1"
+  }
+}

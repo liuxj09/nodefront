@@ -1,0 +1,14 @@
+{% extends './basic.html' %}
+
+{% block beforeHeadEnd %}
+{{ super() }}
+{{ jcsCSS('/res1.5/css/common/common.css') | safe }}
+{{ jcsCSS('/res1.5/css/common/layout.css') | safe }}
+{% endblock %}
+
+{% block body %}
+	{% include "../../_layouts/1.x/header.html" %}
+	{% block main %}
+		{% include "../../_layouts/1.x/footer.html" %}
+	{% endblock %}
+{% endblock %}
